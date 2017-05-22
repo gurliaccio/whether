@@ -1,0 +1,32 @@
+<div class="jumbotron">
+    <h1>Forecast for <span style="color:#005960">{{ city }}</span></h1> 
+    <p>something here</p> 
+</div>
+
+<hr /> 
+<a href="#/forecast/2" ng-class="{ 'bg-primary': days === '2' }">see the next six hours</a> | 
+<a href="#/forecast/5" ng-class="{ 'bg-primary': days === '5' }">see the rest of the day</a> |
+<a href="#/forecast/7" ng-class="{ 'bg-primary': days === '7'}">tomorrow</a>
+
+<div ng-repeat="w in weatherResult.list">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ convertToDate(w.dt) | date: 'MMM d, y' }}</h3>
+                </div>
+                <div class="panel-body">
+                    Low: &deg;{{ convertToFahrenheit(w.main.temp_min) }} <br />
+					High: &#176;{{ convertToFahrenheit(w.main.temp_max) }}
+					<br />
+					Humidity: {{w.main.humidity}}
+					<br />
+					Description: {{w.weather["0"].description}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p>
+	<a href="#/">Back to Search</a>
+</p>
