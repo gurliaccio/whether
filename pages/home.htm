@@ -1,9 +1,9 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
-		<h4>Forecast by city:</h4>
+<!--		<h3>Enter a city name to see the weather forecast:</h3>-->
 		<div class="form-group">
-			<input type="text" class="form-control" ng-model="city"/>
+			<input type="text" class="form-control" id="hideInput" ng-model="city" value="Rome, IT" onfocus="if(this.value=='Rome, IT')this.value='';" onblur="if(this.value=='')this.value='Rome, IT'" tabindex="2"/>
 		</div>
-		<a href="#/forecast" class="btn btn-primary">Forecast Me!</a>
+		<a href="#/forecast" class="btn btn-primary btn-block" ng-click="clearSearch()">See the Weather</a>
 	</div>
 </div>

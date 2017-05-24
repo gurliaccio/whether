@@ -1,0 +1,41 @@
+.navbar-default .navbar-nav>li>a, #homeIcon, span {
+	color: #005960;
+}
+.jumbotron p {
+	font-size: 16px;
+	text-align: center;
+}
+.jumbotron h1, h1, h3 {
+    text-align: center;
+	color: #005960;
+}
+p {
+/*	display: inline-block;*/
+	color: #005960;
+}
+img {
+	padding: 15px 10px 10px 10px;
+}
+#hideInput {
+	background-color: aliceblue;
+	text-align: center;
+}
+body {
+	color:#005960;
+}
+#homeIcon {
+	padding-left: 120px;
+/*	margin-left: 26px;*/
+}
+#tubIcon {
+	padding-right: 120px;
+}
+#mainBox {
+/*		display: inline-block;*/
+}
+.panel-body {
+	background-color: #F0F8FF;
+}
+#detailsBox {
+/*	background-color: lightgray;*/
+}

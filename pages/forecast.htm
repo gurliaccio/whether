@@ -1,13 +1,9 @@
-<div class="jumbotron">
-    <h1>Forecast for <span style="color:#005960">{{ city }}</span></h1> 
-    <p>something here</p> 
-</div>
-
-<hr /> 
-<a href="#/forecast/2" ng-class="{ 'bg-primary': days === '2' }">see the next six hours</a> | 
-<a href="#/forecast/5" ng-class="{ 'bg-primary': days === '5' }">see the rest of the day</a> |
-<a href="#/forecast/7" ng-class="{ 'bg-primary': days === '7'}">tomorrow</a>
-
+<h1>Your forecast for <span>{{ city }}</span></h1>
+<h3>the next
+<a href="#/forecast/2" ng-class="{ 'bg-primary': days === '2' }">2 days</a> | 
+<a href="#/forecast/5" ng-class="{ 'bg-primary': days === '5' }">5 days</a> |
+<a href="#/forecast/7" ng-class="{ 'bg-primary': days === '7'}">7 days</a>
+</h3>
 <div ng-repeat="w in weatherResult.list">
     <div class="row">
         <div class="col-md-12">
@@ -15,18 +11,32 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">{{ convertToDate(w.dt) | date: 'MMM d, y' }}</h3>
                 </div>
-                <div class="panel-body">
-                    Low: &deg;{{ convertToFahrenheit(w.main.temp_min) }} <br />
-					High: &#176;{{ convertToFahrenheit(w.main.temp_max) }}
+				<div class="panel-body">
+					<div class="col-md-5" id="mainBox">
+					<p>
+                    Low: &deg;{{ convertToFahrenheit(w.temp.min) }} <br />
+					High: &#176;{{ convertToFahrenheit(w.temp.max) }}
 					<br />
-					Humidity: {{w.main.humidity}}
+					Humidity: {{w.humidity}}%
 					<br />
 					Description: {{w.weather["0"].description}}
+					<br />
+					Barometric Pressure: {{w.pressure}} hPa
+					</p>
+					</div>
+					<div class="col-md-5" id="detailsBox">
+					<details>
+					Morning Temp: &deg;{{ convertToFahrenheit(w.temp.morn) }} <br />
+					Daytime Temp: &deg;{{ convertToFahrenheit(w.temp.day) }} <br />
+					Evening Temp: &deg;{{ convertToFahrenheit(w.temp.eve) }} <br />
+					Nighttime Temp: &deg;{{ convertToFahrenheit(w.temp.night) }} <br />
+					</details>
+					</div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<p>
+<h3>
 	<a href="#/">Back to Search</a>
-</p>
+</h3>
