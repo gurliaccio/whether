@@ -1,10 +1,15 @@
-weatherApp.controller('homeController', ['$scope', 'cityService', function($scope, cityService) {
+weatherApp.controller('homeController', ['$scope', '$location', 'cityService', function($scope, $location, cityService) {
 	//$('#hideInput').hide();
 	$scope.city = cityService.city;
 	
 	$scope.$watch('city', function() {
 		cityService.city = $scope.city;
-	})
+	});
+	
+	$scope.submit = function() {
+		$location.path("/forecast");
+	};
+	
 	
 //	$scope.clearSearch = function() {
 //		$scope.city = null;
