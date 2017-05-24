@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+    
+	<div class="panel-heading">
+		
+		<h3 class="panel-title">{{ convertToDate({ dt: weatherDay.dt }) | date: dateFormat }}</h3>
+    
+	</div>
+	
+	<div class="panel-body">
+		
+		<div class="col-md-5" id="mainBox">
+			<p>
+            Low: &deg;{{ convertToStandard({daytimeTemp: weatherDay.temp.min })}} <br />
+			High: &#176;{{ convertToStandard({daytimeTemp: weatherDay.temp.max}) }}
+				<br />
+				Humidity: {{weatherDay.humidity}}%
+				<br />
+				Description: {{weatherDay.weather["0"].description}}
+				<br />
+				Barometric Pressure: {{weatherDay.pressure}} hPa
+				</p>
+		</div>
+		
+		<div class="col-md-5" id="detailsBox">
+			<details>
+				Morning Temp: &deg;{{ convertToStandard({daytimeTemp: weatherDay.temp.morn}) }} <br />
+				Daytime Temp: &deg;{{ convertToStandard({daytimeTemp: weatherDay.temp.day}) }}<br />
+				Evening Temp: &deg;{{ convertToStandard({daytimeTemp: weatherDay.temp.eve}) }} <br />
+				Nighttime Temp: &deg;{{ convertToStandard({daytimeTemp: weatherDay.temp.night}) }} <br />
+			</details>
+		</div>
+		
+	</div>
+	
+</div>

@@ -1,3 +1,5 @@
+<!--  one day of weather = w  -->
+
 <h1>Your forecast for <span>{{ city }}</span></h1>
 <h3>the next
 <a href="#/forecast/2" ng-class="{ 'bg-primary': days === '2' }">2 days</a> | 
@@ -7,6 +9,8 @@
 <div ng-repeat="w in weatherResult.list">
     <div class="row">
         <div class="col-md-12">
+			<weather-report weather-day="w" convert-to-standard="convertToFahrenheit(daytimeTemp)" convert-to-date="convertToDate(dt)" date-format="MMM d, y"></weather-report>
+<!--
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">{{ convertToDate(w.dt) | date: 'MMM d, y' }}</h3>
@@ -34,6 +38,7 @@
 					</div>
                 </div>
             </div>
+-->
         </div>
     </div>
 </div>
