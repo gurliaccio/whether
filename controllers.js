@@ -17,7 +17,6 @@ weatherApp.controller('homeController', ['$scope', '$location', 'cityService', f
 										 
 }]);
 weatherApp.controller('aboutController', ['$scope', function($scope) {
-	
 										 
 }]);
 
