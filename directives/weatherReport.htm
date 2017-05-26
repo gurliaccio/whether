@@ -2,20 +2,16 @@
     
 	<div class="panel-heading">
 		
-		<h3 class="panel-title">
-			
-			{{ convertToDate({ dt: weatherDay.last_updated_epoch }) | date: dateFormat }}</h3>
+		<h3 class="panel-title">{{ convertToDate({ dt: weatherDay.dt }) | date: dateFormat }}</h3>
     
 	</div>
 	
 	<div class="panel-body">
-		<div class="col-md-2">
-		<img src="http://cdn.apixu.com//weather//64x64//night//113.png" />
-		</div>
+		
 		<div class="col-md-5" id="mainBox">
 			<p>
-            Low: &deg;{{ weatherDay.temp_f }} <br />
-			Feels like: &#176;{{ weatherDay.feelslike_f }}
+            Low: &deg;{{ convertToStandard({daytimeTemp: weatherDay.temp.min })}} <br />
+			High: &#176;{{ convertToStandard({daytimeTemp: weatherDay.temp.max}) }}
 				<br />
 				Humidity: {{weatherDay.humidity}}%
 				<br />

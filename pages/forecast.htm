@@ -1,13 +1,12 @@
 <!--  one day of weather = w  -->
 
-<h1>Currently in <span>{{ city }}</span>:</h1>
-<h3>
-<a href="#/forecast/2" ng-class="{ 'bg-primary': days === '2' }">today</a> | 
-<a href="#/forecast/5" ng-class="{ 'bg-primary': days === '5' }">next 5 days</a> |
-<a href="#/forecast/7" ng-class="{ 'bg-primary': days === '7'}">next 7 days</a>
+<h1>Your forecast for <span>{{ city }}</span></h1>
+<h3>the next
+<a href="#/forecast/2" ng-class="{ 'bg-primary': days === '2' }">2 days</a> | 
+<a href="#/forecast/5" ng-class="{ 'bg-primary': days === '5' }">5 days</a> |
+<a href="#/forecast/7" ng-class="{ 'bg-primary': days === '7'}">7 days</a>
 </h3>
-<!--<div ng-repeat="w in weatherResult.list">-->
-<div ng-repeat="w in weatherResult">
+<div ng-repeat="w in weatherResult.list">
     <div class="row">
         <div class="col-md-12">
 			<weather-report weather-day="w" convert-to-standard="convertToFahrenheit(daytimeTemp)" convert-to-date="convertToDate(dt)" date-format="MMMM d, y"></weather-report>
