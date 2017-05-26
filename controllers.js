@@ -19,12 +19,20 @@ weatherApp.controller('aboutController', ['$scope', function($scope) {
 
 weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParams', 'cityService', function($scope, $resource, $routeParams, cityService) {
 	$scope.city = cityService.city;	
-	$scope.days = $routeParams.days || 2;
-	$scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily?id=4180439&appid=56acd9fb4a4f6138a4dd1055a7fde1fd", {
-		callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }}
-	);
-	$scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city, cnt: $scope.days });
+//	$scope.days = $routeParams.days || 2;
+	
+//	$scope.weatherAPI = $resource("https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast/daily?id=4180439&appid=56acd9fb4a4f6138a4dd1055a7fde1fd", {
+//		callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }}
+//	);
+	
+//	$scope.weatherAPI = $resource("https://api.apixu.com/v1/forecast.json?key=975dfad80afb48b1814152946172605&q=rome");
+	$scope.weatherAPI =
+	$resource("https://api.apixu.com/v1/current.json?key=975dfad80afb48b1814152946172605&q");
+	
+	$scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city });
+	
 	console.log($scope.weatherResult);
+	
 	$scope.convertToDate = function(dt) {
 		return new Date(dt * 1000);	
 	}
