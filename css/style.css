@@ -39,3 +39,61 @@ body {
 #detailsBox {
 /*	background-color: lightgray;*/
 }
+
+/*////////////////////new*/
+/*////////// Text & Box Styles //////////*/
+
+.red-bk { background: red; }
+.ylw-bk { background: yellow; }
+.grn-bk { background: green; }
+.blk-bk { background: black; }
+.wht-txt { color: white; }
+
+/*////////// Grid System //////////*/
+
+* { box-sizing: border-box; }
+
+.container { 
+    width: 90%;
+    margin: 0 auto;
+}
+
+.row { clear: both; }
+.row:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    line-height: 0;
+}
+
+[class*="col-"] {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+}
+
+/*////////// Responsive Styles //////////*/
+
+@media only screen and (min-width: 700px) {
+   [class*="col-"] {
+        float: left;
+        margin-left: 2%;
+    }
+     [class*="col-"]:first-child {
+         margin-left: 0;
+    }
+    .col-1  { width: 6.5%;  }
+    .col-2  { width: 15%;   }
+    .col-3  { width: 23.5%; }
+    .col-4  { width: 32%;   }
+    .col-5  { width: 40.5%; }
+    .col-6  { width: 49%;   }
+    .col-7  { width: 57.5%; }
+    .col-8  { width: 66%;   }
+    .col-9  { width: 74.5%; }
+    .col-10 { width: 83%;   }
+    .col-11 { width: 91.5%; }
+    .col-12 { width: 100%;  }   
+}
