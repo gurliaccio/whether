@@ -27,14 +27,31 @@
 		<script src="services.js"></script>
 		<script src="controllers.js"></script>
 		<script src="directives.js"></script>
+
 <!--
 		<script>
-			if ($(window).width() <= 400){	
-				
-				$('').style();
+			var bgImageArray = ["sunny1.jpg","rain1.jpg", "rain2.jpeg", "tstorm1.jpg", "tstorm2.jpg", "sunny2.jpg"],
+				base = "img/",
+				secs = 4;
+				bgImageArray.forEach(function(img){
+    				new Image().src = base + img;
+				});
+
+			function backgroundSequence() {
+				window.clearTimeout();
+				var k = 0;
+				for (i = 0; i < bgImageArray.length; i++) {
+					setTimeout(function(){ 
+						document.documentElement.style.background = "url(" + base + bgImageArray[k] + ") no-repeat center center fixed";
+						document.documentElement.style.backgroundSize ="cover";
+						if ((k + 1) === bgImageArray.length) { setTimeout(function() { backgroundSequence() }, (secs * 1000))} else { k++; }			
+					}, (secs * 1000) * i)	
+				}
 			}
+			backgroundSequence();
 		</script>
 -->
+		
     </head>
     <body>
         <header>
